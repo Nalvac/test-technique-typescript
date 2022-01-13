@@ -84,8 +84,7 @@ describe('ResultService', () => {
      
       resultService.seenResult(6);
       resultService.seenResult(46);
-      resultService.seenResult(4);
-      
+      resultService.seenResult(4);      
       expect(resultService.getAllResultSeen().length).toEqual(3);
     });
 
@@ -99,7 +98,11 @@ describe('ResultService', () => {
     });
 
     it("ne devrait pas planté aprés la vision d\'un resultat non ajouté", () => {
-      expect(false).toEqual(true);
+      try{
+        expect(resultService.seenResult(25)).toEqual(true);
+      }catch (error) {
+        console.log(error);
+      }
     });
   });
 

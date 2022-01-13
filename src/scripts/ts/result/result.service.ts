@@ -41,6 +41,9 @@ export class ResultService {
       if(indexElemt > -1){
         this.newResults.splice(indexElemt,1); 
       }
+      return true;
+    } else {
+      return false;
     }
 
   }
