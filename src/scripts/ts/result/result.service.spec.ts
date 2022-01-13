@@ -82,7 +82,11 @@ describe('ResultService', () => {
 
     it("devrait avoir les 3 resultats vue dans la liste aprés qu\'il soit tous vue", () => {
       expect(false).toEqual(true);
+      resultService.seenResult(6);
+      resultService.seenResult(46);
+      resultService.seenResult(4);
       
+      expect(resultService.getAllResultSeen().length).toEqual(3);
     });
 
     it("devrait avoir plus que 2 resultats vue dans la liste aprés qu\'il soit tous vue puis 1 ou la vue est enlevé", () => {
