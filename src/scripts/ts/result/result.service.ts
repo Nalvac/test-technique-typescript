@@ -42,6 +42,7 @@ export class ResultService {
     let  result  = this.newResults.find((el)=>el.id==idResult);
     if (result != undefined){
       result.isSeen = true;
+      result.eventResults[0].createdAt = new Date();
       this.resultIsSeen.push(result);
       const indexElemt= this.newResults.findIndex((el)=>el.id == idResult);
       if(indexElemt > -1){

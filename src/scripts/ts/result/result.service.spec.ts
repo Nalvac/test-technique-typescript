@@ -123,6 +123,8 @@ describe('ResultService', () => {
 
     //ps : je ne veux pas que les event de création soi initialisé dans le beforeEach ci dessus mais directement dans le resultService
     it("devrait avoir la list des résultat dans l\'order de création ( en se basant sur les events de création)", () => {
+      
+      resultService.seenResult(46);
       let results = resultService.getAllResult();
       for (let i = 0; i < results[i].eventResults.length - 1; i++) {
         if (results[i].eventResults[0].createdAt.getSeconds() < results[i+1].eventResults[0].createdAt.getSeconds()) {
@@ -134,7 +136,17 @@ describe('ResultService', () => {
     });
 
     it("devrait avoir 1 event a la date de maintenant quand 1 résultat est vue", () => {
-      expect(false).toEqual(true);
+      //expect(false).toEqual(true);      
+      resultService.seenResult(4);
+      let results = resultService.getAllResult();
+      for (let i = 0; i < results[i].eventResults.length - 1; i++) {
+        if (results[i].eventResults[0].createdAt.getMinutes() == new Date().getMinutes()) {
+          expect(true).toEqual(true);
+
+        }else{
+          expect(false).toEqual(true);
+        }
+       }
     });
 
     it("devrait avoir 2 events avec 2 dates différent aprés la vision d\'un resultat puis la suppression de la vision", () => {
