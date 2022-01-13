@@ -137,7 +137,7 @@ describe('ResultService', () => {
 
     it("devrait avoir 1 event a la date de maintenant quand 1 résultat est vue", () => {
       //expect(false).toEqual(true);      
-      resultService.seenResult(4);
+      resultService.seenResult(6);
       let results = resultService.getAllResult();
       for (let i = 0; i < results[i].eventResults.length - 1; i++) {
         if (results[i].eventResults[0].createdAt.getMinutes() == new Date().getMinutes()) {
