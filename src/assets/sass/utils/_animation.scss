@@ -1,0 +1,16 @@
+@keyframes rotate_ubilab {
+    0% {
+        transform: rotate(-30deg);
+        opacity: 0;
+    }
+    30%{
+        opacity: 0;
+    }
+    
+
+    100% {
+        transform: rotate(-90deg);
+        opacity: 1;
+    }
+    
+}

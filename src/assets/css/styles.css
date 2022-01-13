@@ -1,8 +1,155 @@
+@keyframes rotate_ubilab {
+  0% {
+    transform: rotate(-30deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(-90deg);
+    opacity: 1;
+  }
+}
+.flex_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.flex_row__spaceBetween {
+  justify-content: space-between;
+}
+
+.center {
+  text-align: center;
+}
+
+ul {
+  width: 35%;
+  padding: 1% 2%;
+  font-size: 12px;
+}
+ul > li {
+  list-style: none;
+}
+ul > li a {
+  color: #bebebe;
+}
+ul > li a:hover {
+  color: black;
+}
+
+.active {
+  color: black;
+}
+.active::after {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1%;
+  content: "";
+  width: 1rem;
+  margin: auto;
+  height: 0.25rem;
+  background-color: black;
+  border-radius: 2px;
+}
+
+#page-1 {
+  background-color: #fff;
+  height: 380px;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}
+
+#page-2 {
+  background: linear-gradient(135deg, #90278E 0%, #00AEED 100%);
+}
+#page-2 > h2 {
+  padding: 10% 0% 0% 0%;
+  color: #fff;
+}
+
+.logo-ubilab {
+  position: relative;
+  animation-name: rotate_ubilab;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+.logo-ubilab__img {
+  border: none;
+  height: 240px;
+  width: 240px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ubilab_laboratoire__img {
+  border: none;
+  height: 440px;
+  width: 560px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ubilab_fleche {
+  height: 122px;
+  align-items: flex-end;
+}
+.ubilab_fleche__img {
+  background-color: transparent;
+  display: block;
+  height: 17px;
+  top: 301px;
+  width: 42px;
+}
+
+.icon_chat {
+  position: fixed;
+  left: 93%;
+  bottom: 5%;
+  font-size: 20px;
+  color: white;
+  width: 60px;
+  height: 60px;
+  background-color: #00AEED;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 body {
   margin: 0;
+  font-family: "Cabin", sans-serif;
+  font-size: 1rem;
 }
 body > * {
   box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+i {
+  border-style: none;
+}
+
+h1 {
+  font-size: 64px;
+}
+
+h2 {
+  font-size: 40px;
 }
 
 /*# sourceMappingURL=styles.css.map */

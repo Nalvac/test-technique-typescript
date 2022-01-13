@@ -1,0 +1,116 @@
+@import "./variable";
+
+.flex_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    &__spaceBetween{
+        justify-content: space-between;
+    }  
+
+}
+.center{
+    text-align: center;
+}
+
+ul{
+    width: 35%;
+    padding: 1% 2%;
+    font-size: 12px;
+    > li{
+        list-style: none;
+        a{
+            color: $color-accent;
+            &:hover{
+                color: $color-black;
+            }     
+        }  
+    }    
+}
+.active{
+    color: $color-black;
+    &::after {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1%;
+        content: "";
+        width: 1rem;
+        margin: auto;
+        height: .25rem;
+        background-color: $color-black;
+        border-radius: 2px;
+    }
+}
+#page-1{
+    background-color: $color-white;
+    height: 380px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+
+}
+
+#page-2{
+    background: linear-gradient(135deg, $color-secondary 0%, $color-primary 100%);
+    > h2{
+        padding: 10% 0% 0% 0%;
+        color: $color-white;
+    }
+}
+.logo-ubilab{
+    position: relative;
+        
+    animation-name: rotate_ubilab ;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: both;
+    &__img{        
+        border: none;
+        height: 240px;
+        width: 240px;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+}
+.ubilab_laboratoire{
+    &__img{
+    border: none;
+    height: 440px;;
+    width: 560px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+
+}
+.ubilab_fleche{
+    height: 122px;
+    align-items: flex-end;
+    &__img{
+    background-color: transparent;
+    display: block;
+    height: 17px;
+    top: 301px;
+    width: 42px;
+    }
+}
+.icon_chat{
+    position: fixed;
+    left: 93%;
+    bottom: 5%;
+    font-size: 20px;
+    color: white;
+    width: 60px;
+    height: 60px;
+    background-color: $color-primary;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
