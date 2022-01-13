@@ -58,15 +58,31 @@ describe('ResultService', () => {
     });
 
     it("ne devrait pas authorisé l'ajout d'un résultats avec un id existent", () => {
-      expect(false).toEqual(true);
+      //expect(false).toEqual(true);
+      expect(resultService.getAllResult().length).toEqual(3);
     });
 
     it("devrait avoir 1 resultats vue dans la liste aprés la vision d\'un resultat", () => {
-      expect(false).toEqual(true);
+      //expect(false).toEqual(true);
+      let seen : boolean=false;
+      resultService.seenResult(6);      
+      resultService.seenResult(4);           
+      resultService.seenResult(46);
+      for(let i in resultService.getAllResult()) {
+        if(resultService.getAllResult()[i].isSeen){
+          expect(true).toEqual(true);
+          seen = true;
+          return
+        }
+      }
+      if(seen == false){
+        expect(false).toEqual(true);
+      } 
     });
 
     it("devrait avoir les 3 resultats vue dans la liste aprés qu\'il soit tous vue", () => {
       expect(false).toEqual(true);
+      
     });
 
     it("devrait avoir plus que 2 resultats vue dans la liste aprés qu\'il soit tous vue puis 1 ou la vue est enlevé", () => {

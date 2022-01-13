@@ -23,7 +23,7 @@ export class ResultService {
   
 
   public addResult(newResult:ResultModel) {  
-    if (this.newResults.some(el=>el.id == newResult.id)){
+    if(this.newResults.some(el=>el.id == newResult.id)){
       console.log("Existe déjà");
     }
     else{
