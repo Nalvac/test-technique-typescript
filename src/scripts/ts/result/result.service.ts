@@ -46,7 +46,15 @@ export class ResultService {
   }
 
   public unseenResult(idResult:number) {
-
+    let  result  = this.resultIsSeen.find((el)=>el.id==idResult);
+    if (result != undefined){
+      result.isSeen = false;
+      this.resultUnSeen.push(result);
+     const indexElemt= this.resultIsSeen.findIndex((el)=>el.id == idResult);
+     if(indexElemt > -1){
+      this.resultIsSeen.splice(indexElemt,1); 
+    }
+    }
   }
 
   public getAllResult() : Array<ResultModel> {

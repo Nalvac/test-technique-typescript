@@ -81,7 +81,7 @@ describe('ResultService', () => {
     });
 
     it("devrait avoir les 3 resultats vue dans la liste aprés qu\'il soit tous vue", () => {
-      expect(false).toEqual(true);
+     
       resultService.seenResult(6);
       resultService.seenResult(46);
       resultService.seenResult(4);
@@ -90,7 +90,12 @@ describe('ResultService', () => {
     });
 
     it("devrait avoir plus que 2 resultats vue dans la liste aprés qu\'il soit tous vue puis 1 ou la vue est enlevé", () => {
-      expect(false).toEqual(true);
+      //expect(false).toEqual(true);
+      resultService.seenResult(6);
+      resultService.seenResult(46);
+      resultService.seenResult(4);
+      resultService.unseenResult(46);
+      expect(resultService.getAllResultSeen().length).toEqual(2);
     });
 
     it("ne devrait pas planté aprés la vision d\'un resultat non ajouté", () => {
