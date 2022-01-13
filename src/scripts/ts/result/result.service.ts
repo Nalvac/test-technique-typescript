@@ -23,12 +23,18 @@ export class ResultService {
   
 
   public addResult(newResult:ResultModel) {  
-    if(this.newResults.some(el=>el.id == newResult.id)){
+    if (this.newResults.some(el=>el.id == newResult.id)){
       console.log("Existe déjà");
     }
     else{
-    this.newResults.push(newResult);
-    console.log(JSON.stringify(this.newResults) );
+       let event = {
+        id: "created",
+        idOwner: newResult.idOwner,
+        createdAt:new Date()
+      }
+      newResult.eventResults.push(event);
+      this.newResults.push(newResult);
+      console.log(JSON.stringify(this.newResults) );
     }
   }
 
