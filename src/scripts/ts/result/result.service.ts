@@ -22,11 +22,26 @@ export class ResultService {
   }
   
 
-  public addResult(newResult:ResultModel) {
+  public addResult(newResult:ResultModel) {  
+    if (this.newResults.some(el=>el.id == newResult.id)){
+      console.log("Existe déjà");
+    }
+    else{
     this.newResults.push(newResult);
+    console.log(JSON.stringify(this.newResults) );
+    }
   }
 
   public seenResult(idResult:number) {
+    let  result  = this.newResults.find((el)=>el.id==idResult);
+    if (result != undefined){
+      result.isSeen = true;
+      this.resultIsSeen.push(result);
+     const indexElemt= this.newResults.findIndex((el)=>el.id == idResult);
+      if(indexElemt > -1){
+        this.newResults.splice(indexElemt,1); 
+      }
+    }
 
   }
 
