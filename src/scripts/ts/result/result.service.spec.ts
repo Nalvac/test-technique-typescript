@@ -29,7 +29,8 @@ describe('ResultService', () => {
     it('devrait avoir une liste de 1 résultat vue aprés la vision de ce résultat', () => {
       resultService.seenResult(46);
       expect(resultService.getAllResultSeen().length).toEqual(1);
-      expect(resultService.getAllResult()[1].isSeen).toEqual(true);
+      /* A cet instant du test dans getAllResult nous avons 1 élément donc l'index sera 0*/
+      expect(resultService.getAllResult()[0].isSeen).toEqual(true);
     });
   });
 

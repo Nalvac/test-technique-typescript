@@ -37,7 +37,7 @@ export class ResultService {
     if (result != undefined){
       result.isSeen = true;
       this.resultIsSeen.push(result);
-     const indexElemt= this.newResults.findIndex((el)=>el.id == idResult);
+      const indexElemt= this.newResults.findIndex((el)=>el.id == idResult);
       if(indexElemt > -1){
         this.newResults.splice(indexElemt,1); 
       }
@@ -55,7 +55,8 @@ export class ResultService {
   }
 
   public getAllResultSeen() : Array<ResultModel> {
-    return [];
+    
+    return this.resultIsSeen;
   }
 
   public getAllResultUnSeen() : Array<ResultModel> {
