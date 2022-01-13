@@ -38,10 +38,23 @@ describe('ResultService', () => {
   describe("aprés l'ajout de 3 resultats,", () => {
     beforeEach(() => {
       // init le service avec 3 resultats
+      const result1: ResultModel = {id: 46,idOwner:76,idRecipients:[42],isSeen:false,eventResults:[],contentOfResult:"Test1"};
+      const result2: ResultModel = {id: 4,idOwner:76,idRecipients:[42],isSeen:false,eventResults:[],contentOfResult:"Test2"};      
+      const result3: ResultModel = {id: 6,idOwner:76,idRecipients:[42],isSeen:false,eventResults:[],contentOfResult:"Test3"};
+      resultService = new ResultService();
+      resultService.addResult(result1);
+      resultService.addResult(result2);
+      resultService.addResult(result3);
     });
 
     it("devrait avoir une liste de 3 resultats non vue aprés l\'ajout de 3 resultat.", () => {
-      expect(false).toEqual(true);
+      //expect(false).toEqual(true);
+      // getAllResult doit avoir trois élements
+      expect(resultService.getAllResult().length).toEqual(3);
+      // 3 resultats non vue-vérification     
+      for(let i in resultService.getAllResult() ){
+        expect(resultService.getAllResult()[i].isSeen).toEqual(false);
+      }
     });
 
     it("ne devrait pas authorisé l'ajout d'un résultats avec un id existent", () => {
