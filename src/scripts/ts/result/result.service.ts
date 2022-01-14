@@ -1,6 +1,11 @@
 import { ResultModel } from './model/result.model';
 import { ResultEventModel } from './model/result-event.model';
 
+enum Events {
+  Created = 'created',
+  Seen = 'seen',
+  Received = 'received',
+}
 export class ResultService {
   public result : ResultModel = {
     id : 0,
@@ -9,7 +14,9 @@ export class ResultService {
     isSeen:false,
     eventResults: [],
     contentOfResult:"",
+    
   };
+  
   public newResults  : ResultModel [] ;
   public resultIsSeen  : ResultModel [] ;  
   public resultUnSeen  : ResultModel [] ;
@@ -28,13 +35,12 @@ export class ResultService {
     }
     else{
        let event = {
-        id: "created",
+        id: Events.Created,
         idOwner: newResult.idOwner,
         createdAt:new Date()
       }
       newResult.eventResults.push(event);
       this.newResults.push(newResult);
-      console.log(JSON.stringify(this.newResults) );
     }
   }
 
@@ -59,6 +65,12 @@ export class ResultService {
     let  result  = this.resultIsSeen.find((el)=>el.id==idResult);
     if (result != undefined){
       result.isSeen = false;
+      let event = {
+        id: Events.Seen,
+        idOwner: result.idOwner,
+        createdAt:new Date()
+      }
+      result.eventResults.push(event);
       this.resultUnSeen.push(result);
      const indexElemt= this.resultIsSeen.findIndex((el)=>el.id == idResult);
      if(indexElemt > -1){
@@ -69,7 +81,9 @@ export class ResultService {
 
   public getAllResult() : Array<ResultModel> {
     
-    return this.newResults.concat(this.resultIsSeen) ;
+      
+    console.log(JSON.stringify(this.newResults.concat(this.resultIsSeen).concat(this.resultUnSeen)) );
+    return this.newResults.concat(this.resultIsSeen).concat(this.resultUnSeen) ;
   }
 
   public getAllResultSeen() : Array<ResultModel> {
@@ -78,11 +92,17 @@ export class ResultService {
   }
 
   public getAllResultUnSeen() : Array<ResultModel> {
-    return [];
+    console.log(this.resultUnSeen);
+    return this.resultUnSeen;
   }
 
   public numberOfEventSeen() : number
   {
     return 0;
+  }
+  public dernierModif():Array<ResultModel>{
+
+    
+    return this.getAllResult().reverse();
   }
 }
